@@ -1,22 +1,20 @@
-html {
-  font-size: 14px;
+img {
+  display: block;
+  max-width: 100%;
 }
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+.job-search .govuk-checkboxes__label {
+  max-width: none;
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+.job-search {
+  background-color: #dee0e2;
 }
 
-html {
-  position: relative;
-  min-height: 100%;
+.results .job {
+  border: 1px solid #b1b4b6;
 }
 
-body {
-  margin-bottom: 60px;
+.results .job .logo {
+  width: 64px;
 }
