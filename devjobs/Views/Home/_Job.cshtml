@@ -1,11 +1,15 @@
 <div class="govuk-grid-column-one-third">
     <article class="job govuk-!-padding-5">
         <img class="logo govuk-!-margin-bottom-3" src="/assets/images/govuk-icon-180.png" alt="Department logo">
-        <p class="govuk-hint govuk-!-margin-bottom-2">
-            0d ago • Full Time
+        <p class="govuk-hint govuk-!-margin-bottom-1">
+            @Model.PostedAt • @Model.Contract
         </p>
-        <h3 class="govuk-heading-m govuk-!-margin-bottom-1">Job title</h3>
-        <h4 class="govuk-heading-s govuk-!-margin-bottom-6">Department</h4>
-        <h5 class="govuk-body govuk-!-margin-bottom-0">Location</h5>
+        <h3 class="govuk-heading-s govuk-!-margin-bottom-0">
+            <a class="govuk-link" href="/Home/Job/@Model.Id">
+                @Model.Position
+            </a>
+        </h3>
+        <h4 class="govuk-hint govuk-!-margin-top-1 govuk-!-margin-bottom-6">@Model.Company</h4>
+        <h5 class="govuk-body-s govuk-!-font-weight-bold govuk-!-margin-bottom-0">@Model.Location</h5>
     </article>
 </div>
