@@ -59,7 +59,7 @@
         <div class="govuk-width-container">
             <div class="govuk-service-navigation__container">
                 <span class="govuk-service-navigation__service-name">
-                    <a href="#" class="govuk-service-navigation__link">
+                    <a href="@Url.Action("Index", "Home")" class="govuk-service-navigation__link">
                         devjobs
                     </a>
                 </span>
@@ -70,18 +70,18 @@
                     </button>
                     <ul class="govuk-service-navigation__list" id="navigation">
                         <li class="govuk-service-navigation__item govuk-service-navigation__item--active">
-                            <a class="govuk-service-navigation__link" href="/" aria-current="true">
+                            <a class="govuk-service-navigation__link" href="@Url.Action("Index", "Home")" aria-current="true">
                                 Home
                             </a>
                         </li>
                         <li class="govuk-service-navigation__item">
-                            <a class="govuk-service-navigation__link" href="#">
-                                <strong class="govuk-service-navigation__active-fallback">Navigation item 2</strong>
+                            <a class="govuk-service-navigation__link" href="@Url.Action("Privacy", "Home")">
+                                <strong class="govuk-service-navigation__active-fallback">Privacy Policy</strong>
                             </a>
                         </li>
                         <li class="govuk-service-navigation__item">
-                            <a class="govuk-service-navigation__link" href="#">
-                                Navigation item 3
+                            <a class="govuk-service-navigation__link" href="@Url.Action("Job", "Home")">
+                                Something
                             </a>
                         </li>
                     </ul>
