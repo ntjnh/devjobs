@@ -18,3 +18,9 @@ img {
 .results .job .logo {
   width: 64px;
 }
+
+.results .job .logo-box {
+  display: inline-block;
+  height: 64px;
+  width: 64px;
+}
