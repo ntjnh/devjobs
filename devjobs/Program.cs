@@ -1,7 +1,16 @@
+using devjobs.Models;
+using devjobs.Services;
+
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.Configure<JobsDatabaseSettings>(
+    builder.Configuration.GetSection("DevjobsDatabase"));
+
+builder.Services.AddSingleton<JobsService>();
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews()
+    .AddJsonOptions(
+        options => options.JsonSerializerOptions.PropertyNamingPolicy = null);
 
 var app = builder.Build();
 
