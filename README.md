@@ -6,6 +6,7 @@ Based on the [Devjobs web app](https://www.frontendmentor.io/challenges/devjobs-
 
 - ASP.NET Core web app (MVC)
 - GOV.UK Design System
+- MongoDB
 - Docker
 - Azure App Service
 - CircleCI
