@@ -1,7 +1,7 @@
 @model JobViewModel
 
 @{
-    ViewData["Title"] = "Job Title at Company";
+    //ViewData["Title"] = "Job Title at Company";
 }
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
@@ -30,9 +30,9 @@
 
             <section>
                 <h2 class="govuk-heading-m">Requirements</h2>
-                <p class="govuk-body">@Model.JobDescription.Requirements.Content</p>
+                <p class="govuk-body">@Model.JobDescription.JobRequirements.Content</p>
                 <ul class="govuk-list govuk-list--bullet">
-                    @foreach (var item in Model.JobDescription.Requirements.Items)
+                    @foreach (var item in Model.JobDescription.JobRequirements.Items)
                     {
                         <li>@item</li>
                     }
@@ -41,9 +41,9 @@
 
             <section>
                 <h2 class="govuk-heading-m">What You Will Do</h2>
-                <p class="govuk-body">@Model.JobDescription.Role.Content</p>
+                <p class="govuk-body">@Model.JobDescription.JobRole.Content</p>
                 <ol class="govuk-list govuk-list--number">
-                    @foreach (var item in Model.JobDescription.Role.Items)
+                    @foreach (var item in Model.JobDescription.JobRole.Items)
                     {
                         <li>@item</li>
                     }
