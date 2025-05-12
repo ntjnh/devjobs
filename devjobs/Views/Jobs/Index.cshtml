@@ -8,15 +8,15 @@
     <h1 class="govuk-heading-l">@Model.Jobs.Count search results</h1>
 </div>
 
-<form class="job-search govuk-!-margin-bottom-6 govuk-!-padding-4">
-    <div class="">
+<form asp-asp-controller="Jobs" asp-action="Index" method="get" class="job-search govuk-!-margin-bottom-6 govuk-!-padding-4">
+    <div>
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-two-thirds">
                 <div class="govuk-form-group govuk-!-margin-bottom-2">
                     <label class="govuk-label" for="keyword">
-                        Filter by title, companies, expertise...
+                        Filter by position, companies, expertise...
                     </label>
-                    <input class="govuk-input" type="text" name="keyword" id="keyword">
+                    <input class="govuk-input" type="text" name="keyword">
                 </div>
             </div>
 
@@ -25,7 +25,7 @@
                     <label class="govuk-label" for="location">
                         Filter by location...
                     </label>
-                    <input class="govuk-input" type="text" name="location" id="location">
+                    <input class="govuk-input" type="text" id="location">
                 </div>
             </div>
 

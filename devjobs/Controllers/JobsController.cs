@@ -1,6 +1,7 @@
 using devjobs.Models;
 using devjobs.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace devjobs.Controllers;
 
@@ -10,14 +11,20 @@ public class JobsController : Controller
 
     public JobsController(JobsService jobsService) => _jobsService = jobsService;
 
+    [Route("Jobs/{keyword?}")]
     [Route("Jobs")]
-    [Route("Jobs/Index")]
-    public async Task<IActionResult> Index()
+    public async Task<IActionResult> Index(string keyword)
     {
-        var viewModel = new JobsViewModel
+        var jobs = await _jobsService.GetAsync();
+
+        var viewModel = new JobsViewModel();
+
+        if (!String.IsNullOrEmpty(keyword))
         {
-            Jobs = await _jobsService.GetAsync()
-        };
+            jobs = jobs.Where(j => j.Position.ToLower().Contains(keyword.ToLower())).ToList();
+        }
+
+        viewModel.Jobs = jobs;
         return View(viewModel);
     }
 

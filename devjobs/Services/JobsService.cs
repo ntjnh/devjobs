@@ -18,6 +18,7 @@ public class JobsService
     }
 
     public async Task<List<Job>> GetAsync() => await _jobsCollection.Find(_ => true).ToListAsync();
+    public IQueryable<Job> GetQueryableAsync() => _jobsCollection.AsQueryable();
 
     public async Task<Job?> GetAsync(string id) => await _jobsCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
 }
