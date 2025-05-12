@@ -14,7 +14,7 @@ public class JobsController : Controller
     [Route("Jobs/Index")]
     public async Task<IActionResult> Index()
     {
-        var viewModel = new HomeViewModel
+        var viewModel = new JobsViewModel
         {
             Jobs = await _jobsService.GetAsync()
         };
