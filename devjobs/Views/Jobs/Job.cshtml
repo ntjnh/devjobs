@@ -18,13 +18,15 @@
 
                 <div class="info-col">
                     <div>
-                        <h2 class="govuk-heading-m govuk-!-margin-bottom-0">@Model.JobDescription.Company</h2>
+                        <h2 class="govuk-heading-m govuk-!-margin-bottom-0">
+                            @Model.JobDescription.Company
+                        </h2>
                         <p class="govuk-hint govuk-!-margin-0">
                             @Model.JobDescription.Website.Replace("https://", "")
                         </p>
                     </div>
 
-                    <a class="govuk-button govuk-button--inverse govuk-!-margin-bottom-0" href="@Model.JobDescription.Website">
+                    <a class="govuk-button govuk-button--inverse govuk-!-margin-bottom-0" href="@Model.JobDescription.Website" target="_blank">
                         Company Site
                     </a>
                 </div>
@@ -45,7 +47,7 @@
                     </h3>
                 </div>
 
-                <a class="apply-button govuk-button govuk-button govuk-!-margin-bottom-0" href="@Model.JobDescription.Apply">
+                <a class="apply-button govuk-button govuk-button govuk-!-margin-bottom-0" href="@Model.JobDescription.Apply" target="_blank">
                     Apply Now
                 </a>
             </header>
@@ -88,7 +90,7 @@
                     </p>
                 </div>
 
-                <a class="apply-button govuk-button govuk-!-margin-bottom-0" href="@Model.JobDescription.Apply">
+                <a class="apply-button govuk-button govuk-!-margin-bottom-0" href="@Model.JobDescription.Apply" target="_blank">
                     Apply Now
                 </a>
             </footer>
