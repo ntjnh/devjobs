@@ -16,11 +16,85 @@ img {
 }
 
 .results .job .logo {
-  width: 64px;
+  max-width: 48px;
 }
 
 .results .job .logo-box {
+  align-items: center;
+  display: flex;
+  height: 56px;
+  justify-content: center;
+  width: 56px;
+}
+
+.single-job .company {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.single-job .company > * {
+  box-sizing: border-box;
+}
+
+.single-job .separator {
   display: inline-block;
-  height: 64px;
-  width: 64px;
+  padding: 0 .25rem;
+}
+
+.single-job .company .logo-col {
+  align-items: center;
+  background-color: #1d70b8;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  height: 120px;
+  width: 120px !important;
+}
+
+.single-job .logo-box-outer {
+  background-color: #fff;
+  align-items: center;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  height: 88px;
+  width: 88px;
+}
+
+.single-job .logo-box {
+  align-items: center;
+  display: flex;
+  flex-wrap: nowrap;
+  height: 76px;
+  justify-content: center;
+  width: 76px;
+}
+
+.single-job .logo {
+  width: 48px;
+}
+
+.single-job .company .info-col {
+  align-items: center;
+  background-color: #1d70b8;
+  display: flex;
+  flex-wrap: nowrap;
+  height: 120px;
+  justify-content: space-between;
+  padding: 0 1.5rem 0 .5rem;
+  width: calc(100% - 120px);
+}
+
+.single-job .company .info-col h2,
+.single-job .company .info-col p {
+  color: #fff;
+}
+
+.single-job .single-job-header,
+.single-job .single-job-footer {
+  align-items: center;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
 }
