@@ -30,6 +30,7 @@ public class Job
     [BsonElement("company")]
     public string? Company { get; set; }
 
+    [BsonElement("logo")]
     public string? Logo { get; set; }
 
     [BsonElement("logoBackground")]
