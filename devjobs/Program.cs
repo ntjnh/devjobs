@@ -1,5 +1,7 @@
 using devjobs.Models;
 using devjobs.Services;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.Configure<JobsDatabaseSettings>(
@@ -11,6 +13,9 @@ builder.Services.AddSingleton<JobsService>();
 builder.Services.AddControllersWithViews()
     .AddJsonOptions(
         options => options.JsonSerializerOptions.PropertyNamingPolicy = null);
+
+builder.Services.Configure<MvcViewOptions>(options =>
+    options.HtmlHelperOptions.CheckBoxHiddenInputRenderMode = CheckBoxHiddenInputRenderMode.None);
 
 var app = builder.Build();
 

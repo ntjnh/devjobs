@@ -11,17 +11,26 @@ public class JobsController : Controller
 
     public JobsController(JobsService jobsService) => _jobsService = jobsService;
 
-    [Route("Jobs/{keyword?}")]
     [Route("Jobs")]
-    public async Task<IActionResult> Index(string keyword)
-    {
+    public async Task<IActionResult> Index(string? keyword, string? location, bool FullTime)
+    { 
         var jobs = await _jobsService.GetAsync();
 
         var viewModel = new JobsViewModel();
 
-        if (!String.IsNullOrEmpty(keyword))
+        if (!string.IsNullOrEmpty(keyword))
         {
             jobs = jobs.Where(j => j.Position.ToLower().Contains(keyword.ToLower())).ToList();
+        }
+
+        if (!string.IsNullOrEmpty(location))
+        {
+            jobs = jobs.Where(j => j.Location.ToLower().Contains(location.ToLower())).ToList();
+        }
+
+        if (FullTime)
+        {
+            jobs = jobs.Where(j => j.Contract == "Full Time").ToList();
         }
 
         viewModel.Jobs = jobs;

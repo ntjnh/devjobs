@@ -8,7 +8,7 @@
     <h1 class="govuk-heading-l">@Model.Jobs.Count search results</h1>
 </div>
 
-<form asp-asp-controller="Jobs" asp-action="Index" method="get" class="job-search govuk-!-margin-bottom-6 govuk-!-padding-4">
+<form asp-controller="Jobs" asp-action="Index" method="get" class="job-search govuk-!-margin-bottom-6 govuk-!-padding-4">
     <div>
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-two-thirds">
@@ -25,15 +25,16 @@
                     <label class="govuk-label" for="location">
                         Filter by location...
                     </label>
-                    <input class="govuk-input" type="text" id="location">
+                    <input class="govuk-input" type="text" name="location">
                 </div>
             </div>
 
             <div class="govuk-grid-column-full govuk-!-text-align-right">
                 <div class="govuk-checkboxes govuk-checkboxes--small govuk-!-display-inline-block" data-module="govuk-checkboxes">
                     <div class="govuk-checkboxes__item">
-                        <input class="govuk-checkboxes__input" id="full-time" name="full-time" type="checkbox" value="full-time">
-                        <label class="govuk-label govuk-checkboxes__label" for="full-time">
+                        <input class="govuk-checkboxes__input" asp-for="@Model.FullTime" />
+
+                        <label class="govuk-label govuk-checkboxes__label" asp-for="FullTime">
                             Full Time only
                         </label>
                     </div>
@@ -80,8 +81,7 @@
             <span class="govuk-pagination__link-title">
                 Next<span class="govuk-visually-hidden"> page</span>
             </span>
-            <svg class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg"
-                height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+            <svg class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
                 <path
                     d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z">
                 </path>
