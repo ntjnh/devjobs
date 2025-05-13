@@ -1,7 +1,6 @@
 using devjobs.Models;
 using devjobs.Services;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace devjobs.Controllers;
 
