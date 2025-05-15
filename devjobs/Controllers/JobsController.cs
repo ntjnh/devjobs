@@ -19,7 +19,13 @@ public class JobsController : Controller
 
         if (!string.IsNullOrEmpty(keyword))
         {
-            jobs = jobs.Where(j => j.Position.ToLower().Contains(keyword.ToLower())).ToList();
+            jobs = jobs.Where(j => {
+                var checkPosition = j.Position.Contains(keyword, StringComparison.CurrentCultureIgnoreCase);
+                var checkCompany = j.Company.Contains(keyword, StringComparison.CurrentCultureIgnoreCase);
+
+                return checkPosition || checkCompany;
+
+            }).ToList();
         }
 
         if (!string.IsNullOrEmpty(location))
@@ -33,6 +39,7 @@ public class JobsController : Controller
         }
 
         viewModel.Jobs = jobs;
+
         return View(viewModel);
     }
 
