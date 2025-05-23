@@ -1,101 +1,110 @@
 @model JobViewModel
 
-@{
+@if (Model.JobDescription != null)
+{
+
     ViewData["Title"] = $"{Model.JobDescription.Position} at {Model.JobDescription.Company}";
-}
-<div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
 
-        <article class="single-job">
-            <section class="company">
-                <div class="logo-col">
-                    <div class="logo-box-outer">
-                        <span class="logo-box" style="background-color:@Model.JobDescription.LogoBackground">
-                            <img class="logo" src="@Model.JobDescription.Logo" alt="@Model.JobDescription.Company logo" />
-                        </span>
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            <article class="single-job">
+                <section class="company">
+                    <div class="logo-col">
+                        <div class="logo-box-outer">
+                            <span class="logo-box" style="background-color:@Model.JobDescription.LogoBackground">
+                                <img class="logo" src="@Model.JobDescription.Logo" alt="@Model.JobDescription.Company logo" />
+                            </span>
+                        </div>
                     </div>
-                </div>
 
-                <div class="info-col">
+                    <div class="info-col">
+                        <div>
+                            <h2 class="govuk-heading-m govuk-!-margin-bottom-0">
+                                @Model.JobDescription.Company
+                            </h2>
+                            <p class="govuk-hint govuk-!-margin-0">
+                                @Model.JobDescription.Website.Replace("https://", "")
+                            </p>
+                        </div>
+
+                        <a class="govuk-button govuk-button--inverse govuk-!-margin-bottom-0" href="@Model.JobDescription.Website" target="_blank">
+                            Company Site
+                        </a>
+                    </div>
+                </section>
+
+                <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+                <header class="single-job-header govuk-!-margin-bottom-6">
+                    <div>
+                        <p class="govuk-hint govuk-!-margin-bottom-2 govuk-!-margin-top-0">
+                            @Model.JobDescription.PostedAt <span class="separator">•</span> @Model.JobDescription.Contract
+                        </p>
+                        <h1 class="govuk-heading-m govuk-!-margin-bottom-2">
+                            @Model.JobDescription.Position
+                        </h1>
+                        <h3 class="govuk-body-s govuk-!-font-weight-bold govuk-!-margin-bottom-0">
+                            @Model.JobDescription.Location
+                        </h3>
+                    </div>
+
+                    <a class="apply-button govuk-button govuk-button govuk-!-margin-bottom-0" href="@Model.JobDescription.Apply" target="_blank">
+                        Apply Now
+                    </a>
+                </header>
+
+                <section class="govuk-!-margin-bottom-7">
+                    <p class="govuk-body">@Model.JobDescription.Description</p>
+                </section>
+
+                <section class="govuk-!-margin-bottom-7">
+                    <h2 class="govuk-heading-m">Requirements</h2>
+                    @if (Model.JobDescription.JobRequirements != null)
+                    {
+                        <p class="govuk-body">@Model.JobDescription.JobRequirements.Content</p>
+                        <ul class="govuk-list govuk-list--bullet">
+                            @foreach (var item in Model.JobDescription.JobRequirements.Items)
+                            {
+                                <li>@item</li>
+                            }
+                        </ul>
+                    }
+                </section>
+
+                <section>
+                    <h2 class="govuk-heading-m">What You Will Do</h2>
+                    @if (Model.JobDescription.JobRole != null)
+                    {
+                        <p class="govuk-body">@Model.JobDescription.JobRole.Content</p>
+                        <ol class="govuk-list govuk-list--number govuk-!-margin-bottom-0">
+                            @foreach (var item in Model.JobDescription.JobRole.Items)
+                            {
+                                <li>@item</li>
+                            }
+                        </ol>
+                    }
+                </section>
+
+                <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+                <footer class="single-job-footer">
                     <div>
                         <h2 class="govuk-heading-m govuk-!-margin-bottom-0">
-                            @Model.JobDescription.Company
+                            @Model.JobDescription.Position
                         </h2>
                         <p class="govuk-hint govuk-!-margin-0">
-                            @Model.JobDescription.Website.Replace("https://", "")
+                            @Model.JobDescription.Company
                         </p>
                     </div>
 
-                    <a class="govuk-button govuk-button--inverse govuk-!-margin-bottom-0" href="@Model.JobDescription.Website" target="_blank">
-                        Company Site
+                    <a class="apply-button govuk-button govuk-!-margin-bottom-0" href="@Model.JobDescription.Apply" target="_blank">
+                        Apply Now
                     </a>
-                </div>
-            </section>
+                </footer>
 
-            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+            </article>
 
-            <header class="single-job-header govuk-!-margin-bottom-6">
-                <div>
-                    <p class="govuk-hint govuk-!-margin-bottom-2 govuk-!-margin-top-0">
-                        @Model.JobDescription.PostedAt <span class="separator">•</span> @Model.JobDescription.Contract
-                    </p>
-                    <h1 class="govuk-heading-m govuk-!-margin-bottom-2">
-                        @Model.JobDescription.Position
-                    </h1>
-                    <h3 class="govuk-body-s govuk-!-font-weight-bold govuk-!-margin-bottom-0">
-                        @Model.JobDescription.Location
-                    </h3>
-                </div>
-
-                <a class="apply-button govuk-button govuk-button govuk-!-margin-bottom-0" href="@Model.JobDescription.Apply" target="_blank">
-                    Apply Now
-                </a>
-            </header>
-
-            <section class="govuk-!-margin-bottom-7">
-                <p class="govuk-body">@Model.JobDescription.Description</p>
-            </section>
-
-            <section class="govuk-!-margin-bottom-7">
-                <h2 class="govuk-heading-m">Requirements</h2>
-                <p class="govuk-body">@Model.JobDescription.JobRequirements.Content</p>
-                <ul class="govuk-list govuk-list--bullet">
-                    @foreach (var item in Model.JobDescription.JobRequirements.Items)
-                    {
-                        <li>@item</li>
-                    }
-                </ul>
-            </section>
-
-            <section>
-                <h2 class="govuk-heading-m">What You Will Do</h2>
-                <p class="govuk-body">@Model.JobDescription.JobRole.Content</p>
-                <ol class="govuk-list govuk-list--number govuk-!-margin-bottom-0">
-                    @foreach (var item in Model.JobDescription.JobRole.Items)
-                    {
-                        <li>@item</li>
-                    }
-                </ol>
-            </section>
-
-            <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
-
-            <footer class="single-job-footer">
-                <div>
-                    <h2 class="govuk-heading-m govuk-!-margin-bottom-0">
-                        @Model.JobDescription.Position
-                    </h2>
-                    <p class="govuk-hint govuk-!-margin-0">
-                        @Model.JobDescription.Company
-                    </p>
-                </div>
-
-                <a class="apply-button govuk-button govuk-!-margin-bottom-0" href="@Model.JobDescription.Apply" target="_blank">
-                    Apply Now
-                </a>
-            </footer>
-
-        </article>
-
+        </div>
     </div>
-</div>
+}

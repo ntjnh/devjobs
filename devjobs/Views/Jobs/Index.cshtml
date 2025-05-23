@@ -1,55 +1,56 @@
 ﻿@model devjobs.Models.JobsViewModel
 
-@{
+@if (Model.Jobs != null)
+{
     ViewData["Title"] = $"{Model.Jobs.Count} search results";
-}
 
-<div>
-    <h1 class="govuk-heading-l">@Model.Jobs.Count search results</h1>
-</div>
-
-<form asp-controller="Jobs" asp-action="Index" method="get" class="job-search govuk-!-margin-bottom-6 govuk-!-padding-4">
     <div>
-        <div class="govuk-grid-row">
-            <div class="govuk-grid-column-two-thirds">
-                <div class="govuk-form-group govuk-!-margin-bottom-2">
-                    <label class="govuk-label" for="keyword">
-                        Filter by position or company...
-                    </label>
-                    <input class="govuk-input" type="text" name="keyword" id="keyword">
-                </div>
-            </div>
+        <h1 class="govuk-heading-l">@Model.Jobs.Count search results</h1>
+    </div>
 
-            <div class="govuk-grid-column-one-third">
-                <div class="govuk-form-group govuk-!-margin-bottom-2">
-                    <label class="govuk-label" for="location">
-                        Filter by location...
-                    </label>
-                    <input class="govuk-input" type="text" name="location" id="location">
-                </div>
-            </div>
-
-            <div class="govuk-grid-column-full govuk-!-text-align-right">
-                <div class="govuk-checkboxes govuk-checkboxes--small govuk-!-display-inline-block" data-module="govuk-checkboxes">
-                    <div class="govuk-checkboxes__item">
-                        <input class="govuk-checkboxes__input" asp-for="@Model.FullTime" />
-
-                        <label class="govuk-label govuk-checkboxes__label" asp-for="FullTime">
-                            Full Time only
+    <form asp-controller="Jobs" asp-action="Index" method="get" class="job-search govuk-!-margin-bottom-6 govuk-!-padding-4">
+        <div>
+            <div class="govuk-grid-row">
+                <div class="govuk-grid-column-two-thirds">
+                    <div class="govuk-form-group govuk-!-margin-bottom-2">
+                        <label class="govuk-label" for="keyword">
+                            Filter by position or company...
                         </label>
+                        <input class="govuk-input" type="text" name="keyword" id="keyword">
                     </div>
                 </div>
-                <button class="govuk-button govuk-!-margin-bottom-0" type="submit">Search</button>
+
+                <div class="govuk-grid-column-one-third">
+                    <div class="govuk-form-group govuk-!-margin-bottom-2">
+                        <label class="govuk-label" for="location">
+                            Filter by location...
+                        </label>
+                        <input class="govuk-input" type="text" name="location" id="location">
+                    </div>
+                </div>
+
+                <div class="govuk-grid-column-full govuk-!-text-align-right">
+                    <div class="govuk-checkboxes govuk-checkboxes--small govuk-!-display-inline-block" data-module="govuk-checkboxes">
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" asp-for="@Model.FullTime" />
+
+                            <label class="govuk-label govuk-checkboxes__label" asp-for="FullTime">
+                                Full Time only
+                            </label>
+                        </div>
+                    </div>
+                    <button class="govuk-button govuk-!-margin-bottom-0" type="submit">Search</button>
+                </div>
             </div>
         </div>
-    </div>
-</form>
+    </form>
 
-<section class="results">
-    <div class="govuk-grid-row">
-        @foreach (var vacancy in Model.Jobs)
-        {
-            @await Html.PartialAsync("_Job", vacancy)
-        }
-    </div>
-</section>
+    <section class="results">
+        <div class="govuk-grid-row">
+            @foreach (var vacancy in Model.Jobs)
+            {
+                @await Html.PartialAsync("_Job", vacancy)
+            }
+        </div>
+    </section>
+}
