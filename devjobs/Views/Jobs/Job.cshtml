@@ -5,8 +5,12 @@
 
     ViewData["Title"] = $"{Model.JobDescription.Position} at {Model.JobDescription.Company}";
 
+    @section BackLink {
+        <a href="javascript:history.back()" class="govuk-back-link">Back</a>
+    }
+
     <div class="govuk-grid-row">
-        <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-grid-column-two-thirds govuk-grid-column-two-thirds--lg">
 
             <article class="single-job">
                 <section class="company">
@@ -41,7 +45,7 @@
                         <p class="govuk-hint govuk-!-margin-bottom-2 govuk-!-margin-top-0">
                             @Model.JobDescription.PostedAt <span class="separator">•</span> @Model.JobDescription.Contract
                         </p>
-                        <h1 class="govuk-heading-m govuk-!-margin-bottom-2">
+                        <h1 class="govuk-heading-l govuk-!-margin-bottom-2">
                             @Model.JobDescription.Position
                         </h1>
                         <h3 class="govuk-body-s govuk-!-font-weight-bold govuk-!-margin-bottom-0">

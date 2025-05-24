@@ -71,10 +71,20 @@ img {
   font-size: 1.125rem;
 }
 
+.govuk-back-link {
+  margin-bottom: 0;
+}
+
 .single-job .company {
   align-items: center;
   display: flex;
   justify-content: space-between;
+}
+
+@media (max-width: 768px) {
+  .govuk-grid-column-two-thirds--lg {
+    width: 100%;
+  }
 }
 
 .single-job .company > * {
@@ -123,11 +133,31 @@ img {
   align-items: center;
   background-color: #1d70b8;
   display: flex;
-  flex-wrap: nowrap;
-  height: 120px;
-  justify-content: space-between;
-  padding: 0 1.5rem 0 .5rem;
+  flex-wrap: wrap;
+  height: 120px;  
+  padding: 0 1.125rem 0 .5rem;
   width: calc(100% - 120px);
+}
+
+@media (max-width: 640px) {
+  .single-job .company .info-col {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .single-job .company .info-col > div {
+    margin-bottom: .625rem;
+    width: 100%;
+  }
+}
+
+@media (min-width: 641px) {
+  .single-job .company .info-col {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    padding-right: 1.5rem;
+  }
 }
 
 .single-job .company .info-col h2,
@@ -139,6 +169,21 @@ img {
 .single-job .single-job-footer {
   align-items: center;
   display: flex;
-  flex-wrap: nowrap;
-  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 640px) {
+  .single-job .single-job-header > div,
+  .single-job .single-job-footer > div {
+    margin-bottom: 1.25rem;
+    width: 100%;
+  }
+}
+
+@media (min-width: 641px) {
+  .single-job .single-job-header,
+  .single-job .single-job-footer {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
 }

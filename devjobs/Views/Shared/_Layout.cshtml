@@ -2,8 +2,9 @@
 <html lang="en" class="govuk-template govuk-template--rebranded">
 <head>
     <meta charset="utf-8" />
-    <title>@ViewData["Title"] - devjobs</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="description" content="Developer jobs.">
+    <title>@ViewData["Title"] - devjobs</title>
     <meta name="theme-color" content="#1d70b8">
     <link rel="icon" sizes="48x48" href="~/assets/images/favicon.ico">
     <link rel="icon" sizes="any" href="~/assets/images/favicon.svg" type="image/svg+xml">
@@ -86,6 +87,9 @@
     </section>
 
     <div class="govuk-width-container">
+
+        @RenderSection("BackLink", required: false)
+
         <main class="govuk-main-wrapper" id="main-content">
             @RenderBody()
         </main>
