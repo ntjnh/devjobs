@@ -15,8 +15,44 @@ img {
   background-color: #dee0e2;
 }
 
+@media (min-width: 641px) {
+  .job-search .form-bottom-row {
+    text-align: right;
+  }
+}
+
+@media (max-width: 640px) {
+  .results {
+    padding-bottom: 20px;
+  }
+}
+
+.results__grid {
+  display: grid;
+  gap: 20px;
+}
+
+@media (min-width: 641px) {
+  .results__grid {
+    grid-auto-rows: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 769px) {
+  .results__grid {
+    gap: 30px;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.results__grid__col {
+  display: flex;
+}
+
 .results .job {
   border: 1px solid #b1b4b6;
+  width: 100%;
 }
 
 .results .job .logo {

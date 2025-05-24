@@ -29,7 +29,7 @@
                     </div>
                 </div>
 
-                <div class="govuk-grid-column-full govuk-!-text-align-right">
+                <div class="govuk-grid-column-full form-bottom-row">
                     <div class="govuk-checkboxes govuk-checkboxes--small govuk-!-display-inline-block" data-module="govuk-checkboxes">
                         <div class="govuk-checkboxes__item">
                             <input class="govuk-checkboxes__input" asp-for="@Model.FullTime" />
@@ -46,7 +46,7 @@
     </form>
 
     <section class="results">
-        <div class="govuk-grid-row">
+        <div class="results__grid">
             @foreach (var vacancy in Model.Jobs)
             {
                 @await Html.PartialAsync("_Job", vacancy)
