@@ -11,10 +11,11 @@ public class JobsService
     public JobsService(
         IOptions<JobsDatabaseSettings> jobsDatabaseSettings)
     {
-        var mongoClient = new MongoClient(jobsDatabaseSettings.Value.ConnectionString);
-        var mongoDatabase = mongoClient.GetDatabase(jobsDatabaseSettings.Value.DatabaseName);
+        var connectionString = Environment.GetEnvironmentVariable("MONGODB_URI");
+        var mongoClient = new MongoClient(connectionString);
+        var mongoDatabase = mongoClient.GetDatabase("devjobs");
 
-        _jobsCollection = mongoDatabase.GetCollection<Job>(jobsDatabaseSettings.Value.JobsCollectionName);
+        _jobsCollection = mongoDatabase.GetCollection<Job>("jobs");
     }
 
     public IMongoCollection<Job> GetJobs() => _jobsCollection;

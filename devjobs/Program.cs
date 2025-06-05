@@ -4,8 +4,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.Configure<JobsDatabaseSettings>(
-    builder.Configuration.GetSection("DevjobsDatabase"));
 
 builder.Services.AddSingleton<JobsService>();
 
