@@ -1,17 +1,22 @@
 # Devjobs web app
 
+[![Deploy to Azure App Service](https://github.com/ntjnh/devjobs/actions/workflows/deploy.yml/badge.svg)](https://github.com/ntjnh/devjobs/actions/workflows/deploy.yml)
+
 Based on the [Devjobs web app](https://www.frontendmentor.io/challenges/devjobs-web-app-HuvC_LP4l) Frontend Mentor level 4 advanced challenge.
 
 ## Tech and tools
 
-- ASP.NET Core web app (MVC)
+- C# / ASP.NET Core MVC
 - GOV.UK Design System
 - MongoDB
-- Docker
-- Azure App Service
-- CircleCI
+  - MongoDB C# Driver
+- GitHub Actions
 
-## Brief
+## Deployment
+- Azure App Service
+- Azure Cosmos DB for MongoDB
+
+## Original Brief
 
 Your challenge is to build out this jobs board using a local `data.json` to retrieve the data. Your goal is to try to get your project looking as close to the design as possible.
 
